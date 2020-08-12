@@ -1,5 +1,6 @@
 <div class = "container">
     <h1>Welcome to Recipe Box!</h1>
+    <h2>Am I Authenticated? {{ request.user.is_authenticated }}</h2>
     <ul>
         {% for recipe in recipes %}
             <li>
@@ -8,5 +9,7 @@
         {% endfor %}
     </ul>
     <p>Would you like to <a href = "/newrecipe/">add</a> a new recipe?</p>
-    <p>Would you like to <a href = "/newauthor/">register</a> as a new author?</p>
+    <p>Would you like to <a href = "/newauthor/">register</a> as a new author?</p><br>
+    <button><a href = "/login">Login</a></button><br>
+    <button><a href = "/logout">Logout</a></button><br>
 </div>
