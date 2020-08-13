@@ -2,7 +2,7 @@
     {% if request.user.is_authenticated == False %}
     <h1>Welcome to Recipe Box, User!</request></h1>
     {% else %}
-    <h1>Welcome to Recipe Box, {{ request.user.username }}</request></h1>
+    <h1>Welcome to Recipe Box, {{ request.user.username }}!</request></h1>
     {% endif %}
     <ul>
         {% for recipe in recipes %}
