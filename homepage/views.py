@@ -36,7 +36,6 @@ def recipe_form(request):
     return render(request, "recipe_and_author_forms.html", {"form": form})
 
 @login_required
-@staff_member_required
 def author_form(request):
     if request.method == "POST":
         form = AuthorForm(request.POST)

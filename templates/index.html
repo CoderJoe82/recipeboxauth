@@ -1,5 +1,5 @@
 <div class = "container">
-    <h1>Welcome to Recipe Box!</h1>
+    <h1>Welcome to Recipe Box, {{ request.user.username }}</request></h1>
     <h2>Am I Authenticated? {{ request.user.is_authenticated }}</h2>
     <ul>
         {% for recipe in recipes %}
@@ -9,7 +9,12 @@
         {% endfor %}
     </ul>
     <p>Would you like to <a href = "/newrecipe/">add</a> a new recipe?</p>
+    {% ifequal request.user.is_staff True %}
     <p>Would you like to <a href = "/newauthor/">register</a> as a new author?</p><br>
+    {% else %}
+    <p>Would you like to register as a new author? ((Note: Non staff members are not allowed to register new authors))</p><br>
+    {% endifequal %}
     <button><a href = "/login">Login</a></button><br>
     <button><a href = "/logout">Logout</a></button><br>
+    <button><a href = "/admin">Admin Controls</a></button><br>
 </div>
