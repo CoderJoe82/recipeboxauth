@@ -5,7 +5,14 @@
         <h2>{{ post.title }}</h2>
         <h4>By: <a href = "/author/{{ post.author_id }}">{{ post.author.name }}</a></h4>
         <p>{{ post.body }}</p>
+        {%if request.user.is_authenticated %}
+            <button><a href="/addFavorite/{{post.id}}/">Add to Favorites</a></button>  
+        {% endif %}
+        {%if request.user.author == post.author or request.user.is_staff %}
+            <button><a href="/editRecipe/{{post.id}}/">Edit Recipe</a></button>
+        {% endif %}
     {% endif %}
+    <br/>
     <a href = "/">Back Home!</a>
 </div>
 <button><a href = "/logout">Logout</a></button>

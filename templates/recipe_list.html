@@ -1,7 +1,6 @@
 <div class = "container">
-    {% for auth in authors %}
 
-    <h1>Here are {{ auth.name }}'s recipes!</h1>
+    <h1>Here are {{ authors.name }}'s recipes!</h1>
     {%  for recipe in recipes %}
         <li>
             <a href="/recipe/{{ recipe.id }}/">{{ recipe.title }}</a>
@@ -9,7 +8,13 @@
     {% endfor %}
     <br>
     <br><br>
+    
+    <h1>Here are {{ authors.name }}'s Favorite Recipes</h1>
+    <ul>
+    {% for rec in fav_rec %}
+        <li><a href="/recipe/{{ rec.id }}/">{{ rec.title }}</a></li>
     {% endfor %}
+    </ul>
     <a href = "/">Back Home!</a>
     <br><br>
 </div>
